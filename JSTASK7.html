@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-7</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        img {
+            transition: transform 2s linear; 
+            animation: moveImage 4s linear infinite;
+        }
+
+        @keyframes moveImage {
+            0% {
+                transform: translateX(calc(-(100% -800px)));
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img id="movingImg" src="./train.jpeg">
+    <H1 style="color: rgb(56, 56, 186);">Click the following buttons to handle the animation</H1>
+    <div class="buttons">
+        <button id="startBtn" onclick="startImageAnimation()">Start</button>
+        <button id="stopBtn" onclick="stopImageAnimation()">Stop</button>
+    </div>
+    <script>
+        let isAnimating = false; 
+
+        function startImageAnimation() {
+            if (!isAnimating) {
+                isAnimating = true;
+                const img = document.getElementById("movingImg");
+                img.style.animationPlayState = "running"; 
+            }
+        }
+
+        function stopImageAnimation() {
+            isAnimating = false;
+            const img = document.getElementById("movingImg");
+            img.style.animationPlayState = "paused";
+        }
+    </script>
+</body>
+</html>
